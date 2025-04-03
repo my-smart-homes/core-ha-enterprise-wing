@@ -11,7 +11,6 @@ from typing import Any, cast
 import bcrypt
 import voluptuous as vol
 
-from homeassistant import msh_utils
 from homeassistant.const import CONF_ID
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import HomeAssistantError
@@ -335,10 +334,6 @@ class HassAuthProvider(AuthProvider):
         await self.hass.async_add_executor_job(
             self.data.validate_login, username, password
         )
-
-        await msh_utils.verify_user_subscription_for_this_server(username)
-        server_id = await msh_utils.retrieve_value_from_config_file(msh_utils.SERVER_ID)
-        await msh_utils.fetch_and_save_device_limit(username, server_id)
 
     async def async_add_auth(self, username: str, password: str) -> None:
         """Call add_auth on data."""
