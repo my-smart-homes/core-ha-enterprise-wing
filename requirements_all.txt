@@ -1457,7 +1457,7 @@ mutagen==1.47.0
 mutesync==0.0.1
 
 # homeassistant.components.frontend
-my-smart-homes-frontend==20241228.0
+my-smart-homes-frontend-enterprise-wing==20250220.0
 
 # homeassistant.components.permobil
 mypermobil==0.1.8
